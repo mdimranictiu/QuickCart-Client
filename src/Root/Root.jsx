@@ -1,11 +1,11 @@
 import React from 'react';
+import Navbar from '../Pages/Navbar';
 
 const Root = () => {
     return (
-        <div>
-           <h2 className=' py-10 text-center text-5xl'>QuickCart</h2> 
-           
-        </div>
+        <>
+        <Navbar></Navbar>
+        </>
     );
 };
 
