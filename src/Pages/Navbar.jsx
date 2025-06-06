@@ -65,7 +65,7 @@ const Navbar = () => {
             </div>
 
             {/* Sidebar Menu */}
-            <div className={`fixed top-0 left-0 w-full h-full bg-white shadow-lg z-50 transform ${menu ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300`}>
+            <div className={`fixed top-0 left-0 w-full h-full bg-[white] shadow-lg z-50 transform ${menu ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300`}>
                 <div className='flex px-10 py-4  justify-between items-center'>
                     <h2 className='text-xl font-bold '>QuickCart</h2>
                     <button onClick={toggleMenu}><IoMdClose className='text-2xl' /></button>
