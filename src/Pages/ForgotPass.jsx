@@ -10,7 +10,18 @@ const ForgotPass = () => {
     SetpasswordShow(!passwordShow);
   };
   return (
-    <div>
+    <div className="w-[80%] mx-auto">
+        <div className="breadcrumbs mt-10 text-sm">
+        <ul>
+          <li>
+            <a>Home</a>
+          </li>
+          <li>
+            <a>Account</a>
+          </li>
+          <li>Forgot Password</li>
+        </ul>
+      </div>
       <div className=" py-5 mx-auto mt-[60px] max-sm:mt-[20px] justify-center  items-center">
         <h2 className="text-2xl text-center p-5">Password Reset Request</h2>
         <div className="w-[400px] rounded-2xl bg-[#d2e3f4] h-[230px] mx-auto min-h-min p-5">
