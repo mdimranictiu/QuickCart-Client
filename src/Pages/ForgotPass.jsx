@@ -10,7 +10,7 @@ const ForgotPass = () => {
     SetpasswordShow(!passwordShow);
   };
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%] max-sm:w-full mx-auto">
         <div className="breadcrumbs mt-10 text-sm">
         <ul>
           <li>
@@ -22,9 +22,9 @@ const ForgotPass = () => {
           <li>Forgot Password</li>
         </ul>
       </div>
-      <div className=" py-5 mx-auto mt-[60px] max-sm:mt-[20px] justify-center  items-center">
+      <div className=" py-5 mx-auto mt-[30px] max-sm:mt-[20px] justify-center  items-center">
         <h2 className="text-2xl text-center p-5">Password Reset Request</h2>
-        <div className="w-[400px] rounded-2xl bg-[#d2e3f4] h-[230px] mx-auto min-h-min p-5">
+        <div className="w-[400px] max-sm:w-full rounded-2xl bg-[#d2e3f4] h-[230px] mx-auto min-h-min p-5">
           <form action="">
             <div className="flex flex-col w-full">
               <label className="label mt-3 ">Email</label>

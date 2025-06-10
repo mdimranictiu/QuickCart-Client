@@ -10,7 +10,7 @@ const Login = () => {
     SetpasswordShow(!passwordShow);
   };
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%]  mx-auto">
       <div className="breadcrumbs mt-10 text-sm">
         <ul>
           <li>
@@ -22,9 +22,9 @@ const Login = () => {
           <li>Login</li>
         </ul>
       </div>
-      <div className=" py-5 mx-auto mt-[60px] max-sm:mt-[20px] justify-center  items-center">
-        <h2 className="text-2xl text-center p-5">Login Account</h2>
-        <div className="w-[400px] mx-auto min-h-min p-5">
+      <div className=" py-5 mx-auto mt-[0px] max-sm:mt-[20px] justify-center  items-center">
+        <h2 className="text-2xl max-sm:text-xl text-center py-5">Login Account</h2>
+        <div className="w-[400px] mx-auto min-h-min p-5 max-sm:w-full">
           <form action="">
             <div className="flex flex-col w-full">
               <label className="label mt-3 ">Email/ Phone</label>

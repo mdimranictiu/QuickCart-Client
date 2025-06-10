@@ -18,9 +18,9 @@ const Register = () => {
     <li>Register</li>
   </ul>
 </div>
-      <div className=" py-5 mx-auto mt-[30px] max-sm:mt-[20px] justify-center  items-center">
-        <h2 className="text-2xl text-center p-5">Register Account</h2>
-        <div className="w-[400px] mx-auto min-h-min p-5">
+      <div className=" py-5 mx-auto mt-[0px] max-sm:mt-[20px] justify-center  items-center">
+        <h2 className="text-2xl max-sm:text-xl text-center py-5">Register Account</h2>
+        <div className="w-[400px] max-sm:w-full mx-auto min-h-min p-5">
           <form action="">
             <div className="flex gap-10">
               <div className="flex flex-col w-full">
