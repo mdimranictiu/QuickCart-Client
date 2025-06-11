@@ -1,14 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {SignInAccount}=useContext(AuthContext)
   const [passwordShow, SetpasswordShow] = useState(false);
   const Icon = passwordShow ? FaRegEye : FaRegEyeSlash;
   const handlePasswordShow = () => {
     SetpasswordShow(!passwordShow);
   };
+  const navigate=useNavigate()
+  const {
+          register,
+          handleSubmit,
+          watch,
+          formState: { errors },reset,
+        } = useForm()
+  
+        const  onSubmit=(data)=>{
+          const email= data?.email;
+          const password= data?.password;
+          console.log(email,password)
+          SignInAccount(email,password)
+          .then((res)=>{
+            console.log(res?.data)
+            navigate('/')
+          })
+          .error((error)=>{
+            console.log(error?.message)
+          })
+          reset();
+        }
   return (
     <div className="w-[80%]  mx-auto">
       <div className="breadcrumbs mt-10 text-sm">
@@ -25,10 +50,10 @@ const Login = () => {
       <div className=" py-5 mx-auto mt-[0px] max-sm:mt-[20px] justify-center  items-center">
         <h2 className="text-2xl max-sm:text-xl text-center py-5">Login Account</h2>
         <div className="w-[400px] mx-auto min-h-min p-5 max-sm:w-full">
-          <form action="">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col w-full">
               <label className="label mt-3 ">Email/ Phone</label>
-              <input
+              <input {...register('email',{required:true})}
                 className="input  outline-none hover:border-none w-full px-5"
                 type="text"
                 placeholder="Email/ Phone"
@@ -44,7 +69,7 @@ const Login = () => {
               <input
                 className="input outline-none hover:border-none w-full px-5"
                 type={passwordShow ? "text" : "password"}
-                placeholder="Password"
+                placeholder="Password" {...register("password",{required:true})}
               />
               <Icon
                 onClick={handlePasswordShow}
@@ -52,7 +77,7 @@ const Login = () => {
               />
             </div>
             <div className="mt-10">
-              <button className="btn w-full bg-[#4bc5e6] text-[16px] text-white duration-300 hover:bg-[#00BADB]">
+              <button type="submit" className="btn w-full bg-[#4bc5e6] text-[16px] text-white duration-300 hover:bg-[#00BADB]">
                 Login
               </button>
             </div>

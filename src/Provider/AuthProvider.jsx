@@ -1,5 +1,4 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -10,7 +9,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext(null);
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -32,21 +31,23 @@ export const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("Current User", currentUser);
-      setUser(currentUser);
-    });
-
-    return () => {
-      unSubscribe();
-    };
+useEffect(() => {
+  const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    console.log("Current User", currentUser);
+    setUser(currentUser);
+    setLoading(false);
   });
+
+  return () => {
+    unSubscribe();
+  };
+}, []);
 
   const authInfo = {
     CreateAccount,
     SignInAccount,
-    logOut,
+    logOut,loading,
+    user
   };
 
   return (
